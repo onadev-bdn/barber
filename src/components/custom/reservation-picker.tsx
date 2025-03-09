@@ -1,10 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { addDays, format } from "date-fns";
+import { addDays } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -24,19 +23,12 @@ export function ReservationPicker() {
   const [date, setDate] = React.useState<Date>();
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex justify-between items-center">
       <span className="text-lg font-bold">¡Reserva ya!</span>
       <Popover>
         <PopoverTrigger asChild>
-          <Button
-            variant={"outline"}
-            className={cn(
-              "w-full justify-start text-left font-normal",
-              !date && "text-muted-foreground"
-            )}
-          >
+          <Button variant={"outline"}>
             <CalendarIcon />
-            {date ? format(date, "PPP") : <span>Selecciona una fecha</span>}
           </Button>
         </PopoverTrigger>
         <PopoverContent

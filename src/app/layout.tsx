@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { setDefaultOptions } from "date-fns";
+import { es } from "date-fns/locale";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 
@@ -26,6 +28,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  setDefaultOptions({ locale: es });
   return (
     <html lang="en" suppressHydrationWarning>
       <body

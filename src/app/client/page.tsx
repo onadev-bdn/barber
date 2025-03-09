@@ -5,6 +5,8 @@ import ProductCard from "@/components/custom/product-card";
 import { ReservationPicker } from "@/components/custom/reservation-picker";
 import DesktopDrawer from "@/components/custom/desktop-drawer";
 import { useScreenSize } from "@/hooks/useScreenSize";
+import TimeTable from "@/components/custom/timetable";
+import DateStepper from "@/components/custom/date-stepper";
 
 // Enum para los tipos de servicio
 enum ServiceType {
@@ -89,18 +91,31 @@ export default function Client() {
                 onClose={() => setIsDrawerOpen(false)}
               >
                 <h2 className="text-xl font-bold mb-4">{selectedService}</h2>
-                <ReservationPicker />
+                <section className="flex flex-col gap-8">
+                  <ReservationPicker />
+                  <DateStepper initialDate={new Date()} />
+                  <TimeTable />
+                </section>
               </ActionDrawer>
             </div>
           )}
         </section>
 
         {!isMobile && (
-          <section className="w-full md:w-2/3 bg-transparent p-6 overflow-y-auto max-h-screen sticky top-20 rounded-lg shadow-md">
+          <section className="w-full md:w-2/3 bg-transparent p-6 overflow-y-hidden max-h-screen sticky top-20 rounded-lg shadow-md">
             <DesktopDrawer isOpen={isDrawerOpen}>
               <div className="p-4">
                 <h2 className="text-xl font-bold mb-4">{selectedService}</h2>
-                <ReservationPicker />
+                <section className="grid grid-cols-2 gap-20">
+                  <section className="flex flex-col gap-8">
+                    <ReservationPicker />
+                    <DateStepper initialDate={new Date()} />
+                    <TimeTable />
+                  </section>
+                  <section>
+                    <h3>Summary</h3>
+                  </section>
+                </section>
               </div>
             </DesktopDrawer>
           </section>
