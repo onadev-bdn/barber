@@ -48,7 +48,7 @@ export default function Client() {
       setSelectedService(service);
       setIsDrawerOpen(true);
     }
-  };
+  }; 
 
   return (
     <div className="flex items-start min-h-screen p-8 pt-20 pb-20 gap-16 font-[family-name:var(--font-geist-sans)]">
