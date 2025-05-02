@@ -27,16 +27,18 @@ export default function Client() {
   }, [isMobile]);
 
   useEffect(() => {
-    if (!isMobile) {
+    // solo bloquear scroll si Drawer móvil está abierto
+    if (isMobile && isDrawerOpen) {
       document.body.classList.add("no-scroll");
     } else {
       document.body.classList.remove("no-scroll");
     }
-
+  
     return () => {
       document.body.classList.remove("no-scroll");
     };
-  }, [isMobile]);
+  }, [isMobile, isDrawerOpen]);
+  
 
   const handleProductClick = (service: ServiceType) => {
     if (isDrawerOpen && selectedService === service) {
@@ -51,7 +53,7 @@ export default function Client() {
   return (
     <div className="flex items-start min-h-screen p-8 pt-20 pb-20 gap-16 font-[family-name:var(--font-geist-sans)]">
       <main className="flex w-full gap-8 h-screen">
-        <section className="flex flex-col gap-8 w-full md:w-1/3 max-h-screen pr-4 overflow-visible">
+        <section className="flex flex-col gap-8 w-full md:w-1/3 max-h-screen pr-4 overflow-y-auto">
           <span className="font-bold text-3xl">¡Hola! 👋🏻</span>
           <ProductCard
             title={ServiceType.HAIRCUT}
