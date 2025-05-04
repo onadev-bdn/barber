@@ -35,12 +35,11 @@ export default function Client() {
     } else {
       document.body.classList.remove("no-scroll");
     }
-  
+
     return () => {
       document.body.classList.remove("no-scroll");
     };
   }, [isMobile, isDrawerOpen]);
-  
 
   const handleProductClick = (service: ServiceType) => {
     if (isDrawerOpen && selectedService === service) {
@@ -50,7 +49,7 @@ export default function Client() {
       setSelectedService(service);
       setIsDrawerOpen(true);
     }
-  }; 
+  };
 
   return (
     <div className="flex items-start min-h-screen p-8 pt-20 pb-20 gap-16 font-[family-name:var(--font-geist-sans)]">
@@ -137,7 +136,7 @@ export default function Client() {
                         variant="outline"
                         onClick={() => setIsDrawerOpen(false)}
                       >
-                        Confirmar cita
+                        Reservar cita
                       </GeneralButton>
                     </section>
                   </section>
