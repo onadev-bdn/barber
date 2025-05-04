@@ -7,6 +7,8 @@ import DesktopDrawer from "@/components/custom/desktop-drawer";
 import { useScreenSize } from "@/hooks/useScreenSize";
 import TimeTable from "@/components/custom/timetable";
 import DateStepper from "@/components/custom/date-stepper";
+import { GeneralButton } from "@/components/custom/general-button";
+import SectionDivider from "@/components/custom/section-divider";
 
 // Enum para los tipos de servicio
 enum ServiceType {
@@ -114,8 +116,30 @@ export default function Client() {
                     <DateStepper initialDate={new Date()} />
                     <TimeTable />
                   </section>
-                  <section>
-                    <h3>Summary</h3>
+                  <section className="grid grid-rows-[1fr_auto] gap-8 bg-white p-8 rounded-lg shadow-md">
+                    <section className="overflow-y-auto text-black">
+                      <h3 className="text-lg font-semibold">Resumen</h3>
+                      <section className="flex justify-between items-center">
+                        <span className="text-sm">{selectedService}</span>
+                        <span className="text-sm">5€</span>
+                      </section>
+
+                      <SectionDivider />
+
+                      <section className="flex justify-between items-center">
+                        <span className="text-sm">Total</span>
+                        <span className="text-sm">5€</span>
+                      </section>
+                    </section>
+                    <section className="flex flex-col gap-4">
+                      <GeneralButton
+                        className="w-full h-16 md:h-12 justify-center"
+                        variant="outline"
+                        onClick={() => setIsDrawerOpen(false)}
+                      >
+                        Confirmar cita
+                      </GeneralButton>
+                    </section>
                   </section>
                 </section>
               </div>

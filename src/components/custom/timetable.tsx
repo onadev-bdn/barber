@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { addMinutes, format, setHours, setMinutes } from "date-fns";
-import { Button } from "@/components/ui/button";
 import { CircleCheckBig } from "lucide-react";
+import { GeneralButton } from "./general-button";
 
 const generateTimeSlots = () => {
   const startTime = setHours(setMinutes(new Date(), 0), 9);
@@ -29,12 +29,10 @@ export default function TimeTable() {
       <h2 className="text-lg font-semibold">Selecciona una hora</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2 w-full overflow-y-auto h-full">
         {timeSlots.map((slot, index) => (
-          <Button
+          <GeneralButton
             key={index}
             variant={selectedTime === slot ? "default" : "outline"}
             onClick={() => setSelectedTime(slot)}
-            className="relative text-lg md:text-md h-16 md:h-12 justify-between md:justify-center"
-            size={"lg"}
           >
             {format(slot, "HH:mm")}
             {selectedTime === slot && (
@@ -45,7 +43,7 @@ export default function TimeTable() {
                 className="md:absolute md:right-2 md:top-2 md:bottom-0 md:flex md:items-center md:justify-center"
               />
             )}
-          </Button>
+          </GeneralButton>
         ))}
       </div>
     </div>
