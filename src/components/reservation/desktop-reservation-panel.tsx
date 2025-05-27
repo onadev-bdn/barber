@@ -4,10 +4,11 @@ import ReservationPicker from '@/components/custom/reservation-picker';
 import DateStepper from '@/components/custom/date-stepper';
 import TimeTable from '@/components/custom/timetable';
 import { ReservationSummary } from './reservation-summary';
+import { ServiceType } from '@/components/services/service-list';
 
 interface DesktopReservationPanelProps {
   isOpen: boolean;
-  selectedService: string | null;
+  selectedService: ServiceType | null;
   onReservation: () => void;
 }
 

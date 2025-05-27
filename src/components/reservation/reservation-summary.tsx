@@ -1,9 +1,10 @@
 import React from "react";
 import GeneralButton from "@/components/custom/general-button";
 import SectionDivider from "@/components/custom/section-divider";
+import { ServiceType } from "@/components/services/service-list";
 
 interface ReservationSummaryProps {
-  selectedService: string | null;
+  selectedService: ServiceType | null;
   onReservation: () => void;
 }
 

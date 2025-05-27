@@ -1,10 +1,11 @@
 import React from 'react';
 import { ActionDrawer, ReservationPicker, DateStepper, TimeTable } from "@/components/custom";
+import { ServiceType } from "@/components/services/service-list";
 
 interface MobileReservationDrawerProps {
   isOpen: boolean;
   onClose: () => void;
-  selectedService: string | null;
+  selectedService: ServiceType | null;
 }
 
 export const MobileReservationDrawer: React.FC<MobileReservationDrawerProps> = ({
