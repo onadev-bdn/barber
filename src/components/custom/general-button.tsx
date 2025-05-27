@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"; // Asegúrate de tener esta utilidad
 
 type GeneralButtonProps = ButtonProps;
 
-export const GeneralButton = ({
+const GeneralButton = ({
   className,
   children,
   ...props
@@ -22,3 +22,5 @@ export const GeneralButton = ({
     </Button>
   );
 };
+
+export default GeneralButton;

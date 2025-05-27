@@ -19,7 +19,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export function ReservationPicker() {
+function ReservationPicker() {
   const [date, setDate] = React.useState<Date>();
 
   return (
@@ -59,3 +59,5 @@ export function ReservationPicker() {
     </div>
   );
 }
+
+export default ReservationPicker;

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { addMinutes, format, setHours, setMinutes } from "date-fns";
 import { CircleCheckBig } from "lucide-react";
-import { GeneralButton } from "./general-button";
+import GeneralButton from "./general-button";
 
 const generateTimeSlots = () => {
   const startTime = setHours(setMinutes(new Date(), 0), 9);
@@ -21,7 +21,7 @@ const generateTimeSlots = () => {
 
 const timeSlots = generateTimeSlots();
 
-export default function TimeTable() {
+function TimeTable() {
   const [selectedTime, setSelectedTime] = useState<Date | null>(null);
 
   return (
@@ -49,3 +49,5 @@ export default function TimeTable() {
     </div>
   );
 }
+
+export default TimeTable;

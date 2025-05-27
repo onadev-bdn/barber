@@ -15,7 +15,7 @@ interface ActionDrawer {
   children: React.ReactNode;
 }
 
-export const ActionDrawer: React.FC<ActionDrawer> = ({
+const ActionDrawer: React.FC<ActionDrawer> = ({
   isOpen,
   onClose,
   children,
@@ -32,3 +32,5 @@ export const ActionDrawer: React.FC<ActionDrawer> = ({
     </Drawer>
   );
 };
+
+export default ActionDrawer;
